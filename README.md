@@ -34,5 +34,5 @@ Cada push a `main` publica el sitio automáticamente con GitHub Actions (`.githu
 
 ## Créditos
 
-- Fotos de [Unsplash](https://unsplash.com/?utm_source=esmalte-club&utm_medium=referral): Kartik Gada, Ari Kurniawan, Margarita Yutsaytis, Stefan Vibes y H&CO.
+- Fotos de [Unsplash](https://unsplash.com/?utm_source=esmalte-club&utm_medium=referral): Kartik Gada, Margarita Yutsaytis, Stefan Vibes y H&CO.
 - Diseño y desarrollo: [Laura Moyano](https://laura-moyano-web.pages.dev/)

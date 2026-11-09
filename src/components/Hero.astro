@@ -5,53 +5,52 @@ import { FACTS, PHOTOS, site, whatsappUrl } from '../data/site';
 ---
 
 <section class="hero" id="top" aria-labelledby="hero-title">
-  <div class="container">
-    <p class="kicker">{site.kind} · {site.neighborhood}</p>
-    <h1 class="hero__title" id="hero-title">
-      Uñas que<br />hablan <mark>por vos</mark>
-    </h1>
+  <div class="container hero__layout">
+    <div class="hero__copy">
+      <p class="kicker">{site.kind} · {site.neighborhood}</p>
+      <h1 class="hero__title" id="hero-title">
+        Uñas que<br />hablan <mark>por vos</mark>
+      </h1>
 
-    <div class="hero__grid">
-      <div class="hero__copy">
-        <p class="hero__lead">
-          Semipermanente, kapping y nail art en turnos de 45 minutos. Sin vueltas, sin esperas y con una carta de
-          más de 120 colores.
-        </p>
-        <div class="hero__actions">
-          <a class="btn btn--pink" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-            <Icon name="whatsapp" />
-            Reservar turno
-          </a>
-          <a class="btn btn--white" href="#carta">
-            Ver precios
-            <Icon name="arrow" />
-          </a>
-        </div>
+      <p class="hero__lead">
+        Semipermanente, kapping y nail art en turnos de 45 minutos. Sin vueltas, sin esperas y con una carta de más de
+        120 colores.
+      </p>
 
-        <ul class="facts">
-          {
-            FACTS.map((f) => (
-              <li class="fact">
-                <strong class="fact__value">{f.value}</strong>
-                <span class="fact__label">{f.label}</span>
-              </li>
-            ))
-          }
-        </ul>
+      <div class="hero__actions">
+        <a class="btn btn--pink" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+          <Icon name="whatsapp" />
+          Reservar turno
+        </a>
+        <a class="btn btn--white" href="#carta">
+          Ver precios
+          <Icon name="arrow" />
+        </a>
       </div>
 
-      <div class="hero__collage">
-        <div class="frame frame--main">
-          <Photo photo={PHOTOS.hero} ratio="4:5" sizes="(max-width: 860px) 70vw, 380px" eager />
-        </div>
-        <div class="frame frame--small">
-          <Photo photo={PHOTOS.hearts} ratio="1:1" sizes="(max-width: 860px) 40vw, 200px" widths={[240, 400, 600]} />
-        </div>
-        <span class="stamp">
-          <Icon name="sparkles" size={18} />
-          Nail art<br />a mano alzada
-        </span>
+      <ul class="facts">
+        {
+          FACTS.map((f) => (
+            <li class="fact">
+              <strong class="fact__value">{f.value}</strong>
+              <span class="fact__label">{f.label}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="hero__collage">
+      <div class="frame frame--main">
+        <Photo photo={PHOTOS.hero} ratio="4:5" sizes="(max-width: 860px) 70vw, 420px" eager />
       </div>
+      <div class="frame frame--small">
+        <Photo photo={PHOTOS.french} ratio="1:1" sizes="(max-width: 860px) 40vw, 200px" widths={[240, 400, 600]} />
+      </div>
+      <span class="stamp">
+        <Icon name="sparkles" size={18} />
+        Nail art<br />a mano alzada
+      </span>
     </div>
   </div>
 </section>

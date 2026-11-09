@@ -79,13 +79,6 @@ export const PHOTOS = {
     authorUrl: `https://unsplash.com/@kartikgada${utm}`,
     photoUrl: `https://unsplash.com/photos/-4iMX-4MIZ8${utm}`,
   },
-  hearts: {
-    src: 'https://images.unsplash.com/photo-1754799670410-b282791342c3',
-    alt: 'Uñas con diseño de corazones rosas y lunares blancos',
-    author: 'Ari Kurniawan',
-    authorUrl: `https://unsplash.com/@arikurniawan${utm}`,
-    photoUrl: `https://unsplash.com/photos/qVZNmigGmFE${utm}`,
-  },
   matte: {
     src: 'https://images.unsplash.com/photo-1772322586649-fc11154e76b9',
     alt: 'Uñas cortas cuadradas en rosa mate',
