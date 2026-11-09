@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import PriceMenu from '../components/PriceMenu.astro';
+import Gallery from '../components/Gallery.astro';
+import Steps from '../components/Steps.astro';
+import Faq from '../components/Faq.astro';
+import CtaFooter from '../components/CtaFooter.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title={`${site.name} — ${site.kind} en ${site.neighborhood}${site.isDemo ? ' (demo)' : ''}`}
+  description="Semipermanente, kapping y nail art en turnos de 45 minutos. Carta de precios clara y reserva por WhatsApp."
+>
+  <Header />
+  <main id="contenido">
+    <Hero />
+    <PriceMenu />
+    <Gallery />
+    <Steps />
+    <Faq />
+  </main>
+  <CtaFooter />
+</Base>

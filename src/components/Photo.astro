@@ -1,0 +1,31 @@
+---
+import type { Photo } from '../data/site';
+import { unsplashSrcset, unsplashUrl } from '../lib/unsplash';
+
+interface Props {
+  photo: Photo;
+  /** CSS aspect ratio, e.g. "4:5". */
+  ratio: string;
+  sizes: string;
+  widths?: number[];
+  eager?: boolean;
+  class?: string;
+}
+
+const { photo, ratio, sizes, widths = [400, 640, 900, 1200], eager = false, class: className } = Astro.props;
+const [rw, rh] = ratio.split(':').map(Number);
+const fallbackWidth = widths[Math.min(1, widths.length - 1)];
+---
+
+<img
+  class={className}
+  src={unsplashUrl(photo.src, fallbackWidth, ratio)}
+  srcset={unsplashSrcset(photo.src, widths, ratio)}
+  sizes={sizes}
+  alt={photo.alt}
+  width={fallbackWidth}
+  height={Math.round((fallbackWidth * rh) / rw)}
+  loading={eager ? 'eager' : 'lazy'}
+  fetchpriority={eager ? 'high' : 'auto'}
+  decoding="async"
+/>

@@ -1,0 +1,37 @@
+---
+import Photo from './Photo.astro';
+import { PHOTOS, site } from '../data/site';
+
+const items = [
+  { photo: PHOTOS.working, ratio: '4:5', area: 'a' },
+  { photo: PHOTOS.matte, ratio: '1:1', area: 'b' },
+  { photo: PHOTOS.bottles, ratio: '1:1', area: 'c' },
+  { photo: PHOTOS.french, ratio: '4:5', area: 'd' },
+];
+---
+
+<section class="section section--black" id="galeria" aria-labelledby="galeria-title">
+  <div class="container">
+    <div class="section__head section__head--split">
+      <div>
+        <p class="kicker kicker--pink">Galería</p>
+        <h2 class="section__title" id="galeria-title">Lo que sale<br />de la mesa</h2>
+      </div>
+      <p class="section__aside">Seguinos en {site.instagram} para ver los diseños de la semana.</p>
+    </div>
+
+    <div class="gallery">
+      {
+        items.map(({ photo, ratio, area }) => (
+          <figure class={`gallery__item gallery__item--${area}`}>
+            <Photo photo={photo} ratio={ratio} sizes="(max-width: 700px) 50vw, 300px" widths={[300, 500, 700]} />
+            <figcaption class="gallery__credit">
+              Foto: <a href={photo.authorUrl} target="_blank" rel="noopener noreferrer">{photo.author}</a> /{' '}
+              <a href={photo.photoUrl} target="_blank" rel="noopener noreferrer">Unsplash</a>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+---
+import Icon from './Icon.astro';
+import { HOURS, PHOTOS, site, whatsappUrl } from '../data/site';
+
+const year = new Date().getFullYear();
+const credits = [...new Map(Object.values(PHOTOS).map((p) => [p.author, p])).values()];
+---
+
+<section class="cta" aria-labelledby="cta-title">
+  <div class="container cta__inner">
+    <h2 class="cta__title" id="cta-title">¿Te pintamos<br />las uñas?</h2>
+    <a class="btn btn--black btn--large" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+      <Icon name="whatsapp" size={22} />
+      Reservar por WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <p class="logo logo--footer">ESMALTE<span class="logo__box">CLUB</span></p>
+      <p class="footer__text">{site.kind} en {site.neighborhood}, {site.city}.</p>
+    </div>
+
+    <div>
+      <h2 class="footer__title"><Icon name="clock" size={18} /> Horarios</h2>
+      <dl class="footer__hours">
+        {
+          HOURS.map((h) => (
+            <div>
+              <dt>{h.days}</dt>
+              <dd>{h.hours}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <div>
+      <h2 class="footer__title"><Icon name="pin" size={18} /> Dónde</h2>
+      <p class="footer__text">{site.address}</p>
+      <p class="footer__text footer__ig"><Icon name="instagram" size={18} /> {site.instagram}</p>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>
+      © {year} {site.name} · Diseño y desarrollo:{' '}
+      <a href={site.author.url} target="_blank" rel="noopener noreferrer">{site.author.name}</a>
+    </p>
+    <p class="footer__credits">
+      Fotos de Unsplash:{' '}
+      {
+        credits.map((p, i) => (
+          <>
+            <a href={p.authorUrl} target="_blank" rel="noopener noreferrer">
+              {p.author}
+            </a>
+            {i < credits.length - 1 ? ', ' : '.'}
+          </>
+        ))
+      }
+    </p>
+  </div>
+</footer>
